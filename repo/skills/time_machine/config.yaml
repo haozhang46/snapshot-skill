@@ -1,0 +1,24 @@
+tracked_paths:
+  - config
+  - scripts
+  - policies
+  - models
+  - data_snapshots
+protected_paths:
+  - policies
+risk_levels:
+  normal: "Low risk change"
+  high: "High risk change"
+  critical: "Critical change"
+list_limit: 30
+verification:
+  required_paths:
+    - config
+    - scripts
+    - policies
+  healthcheck_cmd: null
+lock_file: .tm.lock
+audit_log_dir: skills/time_machine/audit_logs
+dvc:
+  enabled: true
+  remote_optional: true
