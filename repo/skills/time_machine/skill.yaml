@@ -1,0 +1,44 @@
+name: time_machine
+description: System-level versioning, snapshot, rollback, and audit for clawbot.
+version: 0.1.0
+language: python
+entrypoint: skills.time_machine.tm:TimeMachine
+functions:
+  - name: snapshot
+    description: Create a versioned snapshot with audit logging.
+    args:
+      reason:
+        type: string
+        required: false
+      level:
+        type: string
+        required: false
+        enum: [normal, high, critical]
+  - name: list
+    description: List snapshots.
+    args:
+      filter:
+        type: string
+        required: false
+        enum: [all, stable, pre-change, experiment]
+  - name: diff
+    description: Diff two snapshots.
+    args:
+      version_a:
+        type: string
+        required: true
+      version_b:
+        type: string
+        required: true
+  - name: restore
+    description: Restore a snapshot.
+    args:
+      version:
+        type: string
+        required: true
+      verify:
+        type: boolean
+        required: false
+      force:
+        type: boolean
+        required: false

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clawbot-time-machine"
+version = "0.1.0"
+description = "Time machine skill for clawbot."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+ dev = ["pytest>=7.4"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
